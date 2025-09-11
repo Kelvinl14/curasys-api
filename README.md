@@ -6,33 +6,62 @@ API RESTful para gerenciamento de hospital (pacientes, médicos, consultas e exa
 
 ## 🚀 Endpoints
 
-### Pacientes
+### 🔑 Autenticação
+- `POST /auth/login` → autentica usuário e retorna JWT
+- `GET /auth/secure-jwt` → rota protegida com JWT
+- `GET /auth/secure-apikey` → rota protegida com API Key
+
+> **Headers:**
+> - JWT → `Authorization: <token>`
+> - API Key → `x-api-key: 1234567890abcdef`
+
+---
+
+### 👤 Pacientes
 - `GET /pacientes` → lista pacientes
 - `POST /pacientes` → cria paciente
 - `GET /pacientes/:id` → detalha paciente
 - `PUT /pacientes/:id` → atualiza paciente
 - `DELETE /pacientes/:id` → remove paciente
 
-### Médicos
-- `GET /medicos`
-- `POST /medicos`
-- `GET /medicos/:id`
-- `PUT /medicos/:id`
-- `DELETE /medicos/:id`
+---
 
-### Consultas
-- `GET /consultas?paciente_id=&medico_id=&data=`
-- `POST /consultas`
-- `PUT /consultas/:id`
-- `DELETE /consultas/:id`
+### 🧑‍⚕️ Médicos
+- `GET /medicos` → lista médicos
+- `POST /medicos` → cria médico
+- `GET /medicos/:id` → detalha médico
+- `PUT /medicos/:id` → atualiza médico
+- `DELETE /medicos/:id` → remove médico
 
-### Exames
-- `GET /exames?paciente_id=`
-- `POST /exames`
-- `GET /exames/:id`
+---
 
-### Autenticação
-- `POST /auth/login` → retorna token JWT fake (MVP)
+### 📅 Consultas
+- `GET /consultas` → lista consultas
+- `POST /consultas` → cria consulta
+- `GET /consultas/:id` → detalha consulta
+- `PUT /consultas/:id` → atualiza consulta
+- `DELETE /consultas/:id` → remove consulta
+- `GET /consultas/paciente/:id_paciente` → lista consultas de um paciente
+- `GET /consultas/medico/:id_medico` → lista consultas de um médico
+
+---
+
+### 🧾 Exames
+- `GET /exames` → lista exames
+- `POST /exames` → cria exame
+- `GET /exames/:id` → detalha exame
+- `PUT /exames/:id` → atualiza exame
+- `DELETE /exames/:id` → remove exame
+
+---
+
+### 👥 Usuários
+- `GET /usuarios` → lista usuários
+- `POST /usuarios` → cria usuário
+- `GET /usuarios/:id` → detalha usuário
+- `PUT /usuarios/:id` → atualiza usuário
+- `DELETE /usuarios/:id` → remove usuário
+
 
 ---
 
